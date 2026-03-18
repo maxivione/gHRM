@@ -1,0 +1,9 @@
+name = "hierarchical_v0"
+input_dim = 128
+workspace_dim = 128
+workspace_slots = 8
+hidden_dim = 256
+planner_interval = 2
+worker_steps = 6
+memory_slots = 8
+output_dim = 16
