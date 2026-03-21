@@ -1,4 +1,0 @@
-split = "validation"
-metrics = ["exact_accuracy", "mean_confidence"]
-track_compute = true
-track_memory_events = true

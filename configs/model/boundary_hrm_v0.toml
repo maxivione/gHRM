@@ -1,0 +1,10 @@
+name = "boundary_hrm_v0"
+vocab_size = 128
+embedding_dim = 384
+hidden_dim = 512
+num_layers = 2
+ctrl_dim = 128
+halt_bias = -1.0
+ponder_coeff = 0.01
+dropout = 0.1
+num_classes = 16

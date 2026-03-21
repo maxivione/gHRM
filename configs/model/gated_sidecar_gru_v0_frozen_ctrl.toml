@@ -1,0 +1,12 @@
+name = "gated_sidecar_gru_v0"
+vocab_size = 128
+embedding_dim = 384
+hidden_dim = 512
+num_layers = 2
+ctrl_dim = 64
+ctrl_layers = 1
+chunk_size = 8
+gate_init_bias = -3.0
+dropout = 0.1
+num_classes = 16
+freeze_controller = true

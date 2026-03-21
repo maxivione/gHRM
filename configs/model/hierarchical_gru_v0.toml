@@ -1,0 +1,9 @@
+name = "hierarchical_gru_v0"
+vocab_size = 128
+embedding_dim = 384
+worker_hidden_dim = 480
+planner_hidden_dim = 320
+fusion_dim = 512
+planner_interval = 4
+dropout = 0.1
+num_classes = 16

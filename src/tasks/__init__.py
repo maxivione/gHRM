@@ -1,3 +1,3 @@
-from src.tasks.registry import PHASE0_TASKS, TaskSpec
+from src.tasks.registry import E1_TASKS, GLOBAL_NUM_CLASSES, GLOBAL_VOCAB_SIZE, TaskSpec
 
-__all__ = ["PHASE0_TASKS", "TaskSpec"]
+__all__ = ["E1_TASKS", "GLOBAL_NUM_CLASSES", "GLOBAL_VOCAB_SIZE", "TaskSpec"]

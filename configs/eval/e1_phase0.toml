@@ -1,0 +1,9 @@
+metrics = [
+  "val_exact_accuracy",
+  "ood_exact_accuracy",
+  "macro_exact_accuracy",
+  "params_total",
+  "peak_vram_mb",
+  "wall_clock_sec_per_epoch",
+  "steps_to_best_val",
+]

@@ -1,0 +1,26 @@
+[settings]
+output_root = "data/synthetic/phase1"
+
+[nested_arith]
+train_size = 2048
+val_size = 256
+ood_size = 256
+seed = 401
+
+[graph_waypoint]
+train_size = 2048
+val_size = 256
+ood_size = 256
+seed = 402
+
+[register_machine]
+train_size = 2048
+val_size = 256
+ood_size = 256
+seed = 403
+
+[segment_match]
+train_size = 2048
+val_size = 256
+ood_size = 256
+seed = 404

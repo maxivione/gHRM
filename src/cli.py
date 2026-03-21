@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from src.tasks.registry import PHASE0_TASKS
+from src.tasks.registry import E1_TASKS
 
 
 REQUIRED_PATHS = [
@@ -12,10 +12,7 @@ REQUIRED_PATHS = [
     Path("configs/train"),
     Path("configs/eval"),
     Path("data/manifests"),
-    Path("datasets/grids"),
-    Path("datasets/symbolic"),
-    Path("datasets/text"),
-    Path("datasets/code"),
+    Path("datasets/phase0"),
     Path("src/models"),
     Path("src/training"),
     Path("src/eval"),
@@ -38,8 +35,8 @@ def check_layout() -> int:
 
 
 def print_phase0() -> int:
-    for task in PHASE0_TASKS:
-        print(f"{task.name}: {task.domain} | {task.description}")
+    for task in E1_TASKS:
+        print(f"{task.name}: {task.domain} | {task.target_description}")
     return 0
 
 

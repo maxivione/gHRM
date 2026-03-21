@@ -1,6 +1,11 @@
 # gHRM-Lite Agent Notes
 
 This repo exists to test a compact generalized hierarchical recurrent model, not to grow a general-purpose ML framework.
+ALWAYS ensure that you are running CUDA instead of using the slow CPU.
+
+## Summarizing for GPT
+
+ALWAYS summarize the test runs and test reports for GPT-5.4
 
 ## Default Working Rules
 

@@ -1,9 +1,0 @@
-seed = 7
-device = "cuda"
-epochs = 20
-batch_size = 32
-learning_rate = 0.0003
-max_grad_norm = 1.0
-log_every_steps = 20
-eval_every_epochs = 1
-report_root = "reports/experiments"

@@ -1,3 +1,3 @@
-from src.training.run import ExperimentSpec, write_experiment_stub
+from src.training.train_e1 import TrainE1Config, main, run_training
 
-__all__ = ["ExperimentSpec", "write_experiment_stub"]
+__all__ = ["TrainE1Config", "main", "run_training"]

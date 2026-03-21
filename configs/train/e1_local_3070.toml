@@ -1,0 +1,12 @@
+seed = 7
+device = "cuda"
+epochs = 30
+early_stopping_patience = 5
+batch_size = 64
+learning_rate = 0.0003
+weight_decay = 0.01
+grad_clip_norm = 1.0
+amp = false
+data_root = "data/synthetic/e1_phase0"
+report_root = "reports/experiments"
+run_name = "e1"

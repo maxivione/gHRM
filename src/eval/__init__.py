@@ -1,3 +1,3 @@
-from src.eval.metrics import exact_accuracy, mean_confidence
+from src.eval.metrics import collect_metrics, exact_accuracy
 
-__all__ = ["exact_accuracy", "mean_confidence"]
+__all__ = ["collect_metrics", "exact_accuracy"]

@@ -1,19 +1,29 @@
 from __future__ import annotations
 
 import torch
+from dataclasses import dataclass
+
 from torch import nn
 
 
-class OutputHeads(nn.Module):
-    def __init__(self, hidden_dim: int, output_dim: int) -> None:
-        super().__init__()
-        self.answer = nn.Linear(hidden_dim, output_dim)
-        self.confidence = nn.Linear(hidden_dim, 1)
-        self.action = nn.Linear(hidden_dim, 4)
+@dataclass(frozen=True)
+class ClassifierHeadConfig:
+    input_dim: int
+    hidden_dim: int
+    output_dim: int
+    dropout: float
 
-    def forward(self, hidden_state: torch.Tensor) -> dict[str, torch.Tensor]:
-        return {
-            "answer_logits": self.answer(hidden_state),
-            "confidence": torch.sigmoid(self.confidence(hidden_state)),
-            "action_logits": self.action(hidden_state),
-        }
+
+class ClassifierHead(nn.Module):
+    def __init__(self, config: ClassifierHeadConfig) -> None:
+        super().__init__()
+        self.layers = nn.Sequential(
+            nn.LayerNorm(config.input_dim),
+            nn.Linear(config.input_dim, config.hidden_dim),
+            nn.GELU(),
+            nn.Dropout(config.dropout),
+            nn.Linear(config.hidden_dim, config.output_dim),
+        )
+
+    def forward(self, hidden_state):
+        return self.layers(hidden_state)

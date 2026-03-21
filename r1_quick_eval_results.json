@@ -1,0 +1,8 @@
+{
+  "batches_evaluated": 5,
+  "accuracy": 0.830257,
+  "total_correct": 258243,
+  "total_tokens": 311040,
+  "elapsed_seconds": 62.6,
+  "peak_vram_mb": 1711.0
+}

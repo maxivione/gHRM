@@ -1,29 +1,31 @@
 # gHRM-Lite
 
-gHRM-Lite is a compact research repo for testing whether a generalized hierarchical recurrent backbone can transfer reasoning across small grid, symbolic, text, and code-style tasks on consumer hardware.
+gHRM-Lite is a compact research repo for one falsifiable experiment first:
 
-The current repo state is a bootstrap scaffold for `E1` from the master brief:
+- `E1`: flat recurrent baseline vs hierarchical recurrent baseline
+- four tiny synthetic phase-0 tasks
+- reproducible local configs
+- wall-clock and VRAM telemetry on a single RTX 3070 8GB
 
-- flat recurrent baseline vs hierarchical recurrent baseline
-- phase-0 synthetic tasks first
-- telemetry and reproducibility before scale
-- RTX 3070 8GB as the main training target
+Everything outside E1 is intentionally deferred.
 
 ## Scope
 
 In scope:
 
-- small falsifiable experiments
-- synthetic dataset generation
-- reproducible local training and evaluation
-- telemetry for VRAM, wall-clock, control events, and failure cases
+- flat GRU baseline
+- hierarchical GRU baseline
+- maze, Sudoku-style fill, graph shortest path, and string rewrite tasks
+- exact accuracy, OOD accuracy, VRAM, and wall-clock logging
 
 Out of scope:
 
-- chatbot finetuning
-- open-web pretraining
-- large multimodal systems
-- scale-driven benchmark farming
+- memory modules
+- text adapters
+- code adapters
+- MoE
+- RL loops
+- full LM work
 
 ## Quick Start
 
@@ -31,43 +33,33 @@ Out of scope:
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -e .[dev]
-python -m src.cli check-layout
-python scripts\smoke_test.py
+python scripts\generate_phase0.py
+python scripts\run_e1.py --model-config configs\model\flat_gru_v0.toml --train-config configs\train\e1_local_3070.toml --eval-config configs\eval\e1_phase0.toml
 ```
 
-## Initial Layout
+## E1 Layout
 
 ```text
-configs/     Reproducible model, train, and eval config files
-data/        Local raw, processed, synthetic, and manifest files
-datasets/    Domain-specific dataset builders and dataset assets
-src/         Adapters, models, training, eval, telemetry, and task registry
-scripts/     Thin operational scripts
-reports/     Experiment writeups, failures, and weekly notes
-notebooks/   Scratch analysis only after scripted baselines exist
+configs/       Reproducible model, train, and eval config files
+data/          Dataset manifest and generated synthetic data
+datasets/      Tiny phase-0 task generators
+src/models/    Flat and hierarchical recurrent baselines only
+src/training/  One E1 train/eval path
+src/eval/      Exact accuracy and aggregate metrics
+src/telemetry/ Wall-clock and peak VRAM logging
+scripts/       Dataset generation and E1 run entrypoints
+reports/       One report template for E1 writeups
 ```
 
 ## Phase-0 Tasks
 
-The first experiment cycle stays narrow:
-
-- Sudoku
-- maze
-- graph traversal
-- string rewrite
+- `maze_path_exists`
+- `sudoku_cell_fill`
+- `graph_shortest_path_len`
+- `string_rewrite_final_token`
 
 Use `python -m src.cli print-phase0` to see the current task registry.
 
 ## Research Rule
 
-Every experiment should produce:
-
-1. hypothesis
-2. smallest config diff
-3. datasets used
-4. hardware used
-5. peak VRAM
-6. wall-clock
-7. primary metrics
-8. failure analysis
-9. next action
+E1 succeeds only if the hierarchical baseline beats the flat baseline by a real margin under matched scale and still fits the 3070 budget.

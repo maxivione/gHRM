@@ -1,0 +1,20 @@
+[settings]
+output_root = "data/synthetic/e1_phase0"
+
+[maze_path_exists]
+train_size = 256
+val_size = 64
+ood_size = 64
+seed = 101
+
+[sudoku_cell_fill]
+train_size = 256
+val_size = 64
+ood_size = 64
+seed = 202
+
+[graph_shortest_path_len]
+train_size = 256
+val_size = 64
+ood_size = 64
+seed = 303

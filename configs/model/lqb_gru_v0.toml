@@ -1,0 +1,10 @@
+name = "lqb_gru_v0"
+vocab_size = 128
+embedding_dim = 384
+hidden_dim = 512
+num_layers = 2
+d_attn = 128
+num_queries = 4
+gate_init_bias = -3.0
+dropout = 0.1
+num_classes = 16

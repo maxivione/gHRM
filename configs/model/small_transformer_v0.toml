@@ -1,0 +1,10 @@
+name = "small_transformer_v0"
+vocab_size = 128
+d_model = 384
+nhead = 6
+num_layers = 2
+dim_feedforward = 1024
+max_seq_len = 512
+dropout = 0.1
+head_hidden_dim = 512
+num_classes = 16
